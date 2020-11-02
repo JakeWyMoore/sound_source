@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'first_app/css/login.css' %}">
+
+  <title>Login</title>
+</head>
+<body>
+  <h1>Login</h1>
+
+  <form action="/login" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input placeholder="Email" name="email" type="text">
+    <input placeholder="Password" name="password" type="password">
+    <button type="submit">Login</button>
+  </form>
+
+  <form action="/sign_up_page">
+    <button type="submit">Sign Up</button>
+  </form>
+
+</body>
+</html>
