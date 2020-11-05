@@ -13,6 +13,7 @@ def user_home(request):
   logged_user = User.objects.get(id=request.session['id'])
 
   artist_uri = 'spotify:artist:4oUHIQIBe0LHzYfvXNW4QM'
+
   spotify = spotipy.Spotify(client_credentials_manager=SpotifyClientCredentials(client_id='84741dfeaa7f422b86aae5963b573550', client_secret='4850b29725b74296b9074b63b2f56c68'))
   results = spotify.artist_top_tracks(artist_uri)
   final_result = results['tracks'][:10]

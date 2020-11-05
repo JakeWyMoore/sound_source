@@ -3,7 +3,7 @@ from django.db import models
 
 class UserManager(models.Manager):
   def basic_validator(self, postData):
-    errors = {}
+    errors = {  }
 
     # Email Validations
     email = postData['email']

@@ -4,20 +4,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'first_app/css/user_home.css' %}">
+
   <title>Document</title>
 </head>
 <body>
-  <h1>Hello {{ user.nickname }}</h1>
+  <!-- <h1>Hello {{ user.nickname }}</h1> -->
 
-  <h3>View Playlists</h3>
-
-  {% for x in results %}
-  <a href="{{ x.preview_url }}"><button type="button">{{ x.name }}</button></a>
-  {% endfor %}
+  <h1>Sound Source</h1>
 
 
   <form action="/logout">
-    <button type="submit">Logout</button>
+    <button class="logout_button" type="submit">Logout</button>
   </form>
+
+  <div class="artist">
+    <h2>Morgan Wallen</h2>
+    {% for x in results %}
+    <h3>{{ x.name }}</h3>
+    <a href="{{ x.preview_url }}"><button type="button">play</button></a>
+    {% endfor %}
+  </div>
+
 </body>
 </html>

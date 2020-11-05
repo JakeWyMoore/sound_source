@@ -1,0 +1,31 @@
+* {
+  text-align: center;
+}
+
+h1 {
+  font-family: sans-serif;
+}
+
+button {
+  padding: 10px 15px;
+  margin: 10px;
+  background-color: #141414;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-family: sans-serif;
+}
+
+button:hover {
+  background-color: #777777;
+  cursor: pointer;
+}
+
+.logout_button {
+  background-color: #d3c0f7;
+}
+
+.logout_button:hover {
+  background-color: #777777;
+  cursor: pointer;
+}
