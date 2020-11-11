@@ -20,13 +20,25 @@
     <button class="logout_button" type="submit">Logout</button>
   </form>
 
+  <div class="search">
+    <form method="POST">
+      {% csrf_token %}
+      <input type="text" name="uri" placeholder="Artist URI">
+      <button type="submit">Search</button>
+    </form>
+  </div>
+
+  {% if results %}
   <div class="artist">
-    <h2>Morgan Wallen</h2>
     {% for x in results %}
-    <h3>{{ x.name }}</h3>
-    <a href="{{ x.preview_url }}"><button type="button">play</button></a>
+    <div class="results">
+      <li><h3>{{ x.name }}</h3></li>
+      <l1><a href="{{ x.preview_url }}">Play Song</a></l1>
+      <li><img src="{{ x.album.images.0.url }}"></li>
+    </div>
     {% endfor %}
   </div>
+  {% endif %}
 
 </body>
 </html>

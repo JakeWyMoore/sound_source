@@ -12,17 +12,17 @@ def index(request):
 def user_home(request):
   logged_user = User.objects.get(id=request.session['id'])
 
-  artist_uri = 'spotify:artist:4oUHIQIBe0LHzYfvXNW4QM'
+  if request.method == 'POST':
+    artist_uri = request.POST.get('uri')
 
-  spotify = spotipy.Spotify(client_credentials_manager=SpotifyClientCredentials(client_id='84741dfeaa7f422b86aae5963b573550', client_secret='4850b29725b74296b9074b63b2f56c68'))
-  results = spotify.artist_top_tracks(artist_uri)
-  final_result = results['tracks'][:10]
+    spotify = spotipy.Spotify(client_credentials_manager=SpotifyClientCredentials(client_id='84741dfeaa7f422b86aae5963b573550', client_secret='4850b29725b74296b9074b63b2f56c68'))
+    results = spotify.artist_top_tracks(artist_uri)
+    final_result = results['tracks'][:10]
 
-  context = {
-    'user': logged_user,
-  }
-
-  return render(request, 'first_app/user_home.html', {"results": final_result}, )
+    return render(request, 'first_app/user_home.html', {"results": final_result}, )
+  else:
+    return render(request, 'first_app/user_home.html')
+  
 
 def login(request):
   logged_user = User.objects.filter(email=request.POST['email'])
@@ -58,7 +58,7 @@ def sign_up(request):
     request.session['user'] = new_user.email
     request.session['id'] = new_user.id
 
-    return render(request, 'first_app/user_home.html')
+    return redirect('/user_home')
   
   else:
     return redirect('/')
@@ -66,3 +66,4 @@ def sign_up(request):
 def logout(request):
   request.session.flush()
   return redirect('/')
+
