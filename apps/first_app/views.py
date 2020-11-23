@@ -67,3 +67,6 @@ def logout(request):
   request.session.flush()
   return redirect('/')
 
+def none(request):
+  return render(request, 'first_app/error.html')
+

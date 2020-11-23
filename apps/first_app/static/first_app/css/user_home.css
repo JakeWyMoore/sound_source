@@ -29,3 +29,12 @@ button:hover {
   background-color: #777777;
   cursor: pointer;
 }
+
+.info {
+  text-align: center;
+  margin: 15px;
+}
+
+.artist {
+  margin: 100px;
+}
