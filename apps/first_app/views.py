@@ -63,6 +63,29 @@ def sign_up(request):
   else:
     return redirect('/')
 
+def edit_profile_page(request):
+  logged_user = User.objects.get(id=request.session['id'])
+
+  context = {
+    'user': logged_user,
+  }
+
+  return render(request, 'first_app/edit_profile.html', context)
+
+def edit_profile(request):
+  the_user = User.objects.get(id = request.session['id'])
+
+  if request.POST['password'] == request.POST['confirm_password']:
+    the_user.email = request.POST['email']
+    the_user.password = request.POST['password']
+    the_user.nickname = request.POST['nickname']
+    the_user.save()
+  
+  else:
+    return redirect('/edit_profile_page')
+  
+  return redirect('/edit_profile_page')
+  
 def logout(request):
   request.session.flush()
   return redirect('/')
