@@ -10,13 +10,25 @@
 <body>
   <h1>Edit Profile</h1>
 
+  <h3>Hello {{ user.nickname }}</h3>
+
+  <div class="profile_picture">
+    {{ user.profile_picture }}
+  </div>
+
   <form action="/edit_profile" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     <input value="{{ user.email }}" name="email" type="text">
-    <input value="{{ user.password }}" name="password" type="">
+    <input value="{{ user.password }}" name="password" type="text">
     <input placeholder="Confirm Password" name="confirm_password" type="password">
     <input value="{{ user.nickname }}" name="nickname" type="text">
     <button type="submit">Save Changes</button>
+  </form>
+
+  <form action="/image" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input accept="image/*" name="image" type="file">
+    <button type="submit">Add Profile Picture</button>
   </form>
 
   <form action="/user_home">

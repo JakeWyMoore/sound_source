@@ -26,4 +26,5 @@ class User(models.Model):
   email = models.CharField(max_length = 50)
   password = models.CharField(max_length = 25)
   nickname = models.CharField(max_length = 25)
+  image = models.ImageField(default='default.png', blank = True)
   objects = UserManager()

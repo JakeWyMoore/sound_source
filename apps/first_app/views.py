@@ -85,7 +85,15 @@ def edit_profile(request):
     return redirect('/edit_profile_page')
   
   return redirect('/edit_profile_page')
-  
+
+def image(request):
+  the_user = User.objects.get(id = request.session['id'])
+
+  the_user.image = request.POST['image']
+  the_user.save()
+
+  return redirect('/edit_profile_page')
+
 def logout(request):
   request.session.flush()
   return redirect('/')
