@@ -10,7 +10,8 @@ def index(request):
 
 # LOGIN, SIGN UP, AND LOGOUT
 def user_home(request):
-  logged_user = User.objects.get(id=request.session['id'])
+  the_user = User.objects.get(id=request.session['id'])
+
 
   if request.method == 'POST':
     artist_uri = request.POST.get('uri')
@@ -19,11 +20,20 @@ def user_home(request):
     results = spotify.artist_top_tracks(artist_uri)
     final_result = results['tracks'][:10]
 
-    return render(request, 'first_app/user_home.html', {"results": final_result}, )
-  else:
-    return render(request, 'first_app/user_home.html')
-  
+    context = {
+      'user': the_user,
+      'results': final_result,
+    }
 
+    return render(request, 'first_app/user_home.html', context)
+  else:
+    context = {
+      'user': the_user,
+    }
+
+    return render(request, 'first_app/user_home.html', context)
+  
+########### LOGIN
 def login(request):
   logged_user = User.objects.filter(email=request.POST['email'])
 
@@ -40,6 +50,7 @@ def login(request):
     print('Error')
     return redirect('/')
 
+########### SIGN UP
 def sign_up_page(request):
   return render(request, 'first_app/sign_up.html')
 
@@ -63,6 +74,7 @@ def sign_up(request):
   else:
     return redirect('/')
 
+########### EDIT 
 def edit_profile_page(request):
   logged_user = User.objects.get(id=request.session['id'])
 
