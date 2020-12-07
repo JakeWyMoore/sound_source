@@ -35,6 +35,28 @@ button:hover {
   margin: 15px;
 }
 
-.artist {
-  margin: 100px;
+.single {
+  padding: 25px 50px;
+  margin: 50px;
+  border: 5px solid #d3c0f7;
+}
+
+img {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  max-width: 150px;
+  height: auto;
+}
+
+.results {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+a {
+  text-decoration: none;
+  color: #d3c0f7;
 }

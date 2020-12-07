@@ -32,14 +32,16 @@
   </div>
 
   {% if results %}
-  <div class="artist">
+  <div class="results">
     {% for x in results %}
-    <div class="results">
+    <div class="single">
       <div class="info">
         <h3>{{ x.name }}</h3>
         <a href="{{ x.preview_url }}">Play Song</a>
       </div>
-      <img src="{{ x.album.images.0.url }}">
+      <div class="cover">
+        <img src="{{ x.album.images.0.url }}">
+      </div>
     </div>
     {% endfor %}
   </div>
