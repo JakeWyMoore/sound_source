@@ -11,41 +11,45 @@
   <title>Document</title>
 </head>
 <body>
-  <h1>Hello {{ user.nickname }}</h1>
 
-  <!-- <h1>Sound Source</h1> -->
+  <div class="container">
+    <div class="top_section">
+      <h1>Hello {{ user.nickname }}</h1>
 
-  <form action="/logout">
-    <button class="logout_button" type="submit">Logout</button>
-  </form>
-
-  <form action="/edit_profile_page">
-    <button class="logout_button" type="submit">Edit Profile</button>
-  </form>
-
-  <div class="search">
-    <form method="POST">
-      {% csrf_token %}
-      <input type="text" name="uri" placeholder="Artist URI">
-      <button type="submit">Search</button>
-    </form>
-  </div>
-
-  {% if results %}
-  <div class="results">
-    {% for x in results %}
-    <div class="single">
-      <div class="info">
-        <h3>{{ x.name }}</h3>
-        <a href="{{ x.preview_url }}">Play Song</a>
-      </div>
-      <div class="cover">
-        <img src="{{ x.album.images.0.url }}">
+      <form action="/logout">
+        <button class="logout_button" type="submit">Logout</button>
+      </form>
+    
+      <form action="/edit_profile_page">
+        <button class="logout_button" type="submit">Edit Profile</button>
+      </form>
+    </div>
+  
+    <div class="mid_section">
+      <div class="search">
+        <form method="POST">
+          {% csrf_token %}
+          <input type="text" name="uri" placeholder="Artist URI">
+          <button type="submit">Search</button>
+        </form>
       </div>
     </div>
-    {% endfor %}
-  </div>
-  {% endif %}
+  
+    {% if results %}
+    <div class="results">
+      {% for x in results %}
+      <div class="single">
+        <div class="info">
+          <h3>{{ x.name }}</h3>
+          <a href="{{ x.preview_url }}">Play Song</a>
+        </div>
+        <div class="cover">
+          <img src="{{ x.album.images.0.url }}">
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
 
 </body>
 </html>

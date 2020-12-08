@@ -1,9 +1,17 @@
 * {
   text-align: center;
+  background-color: #141414;
+  margin: 0;
 }
 
 h1 {
   font-family: sans-serif;
+  color: white;
+}
+
+h3 {
+  font-family: sans-serif;
+  color: white;
 }
 
 button {
@@ -21,8 +29,20 @@ button:hover {
   cursor: pointer;
 }
 
+input[type=text] {
+  width: 500px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 20px;
+}
+
+
 .logout_button {
-  background-color: #d3c0f7;
+  background-color: #ff2014;
 }
 
 .logout_button:hover {
@@ -38,7 +58,7 @@ button:hover {
 .single {
   padding: 25px 50px;
   margin: 50px;
-  border: 5px solid #d3c0f7;
+  border: 5px solid #ff2014;
 }
 
 img {
@@ -58,5 +78,31 @@ img {
 
 a {
   text-decoration: none;
-  color: #d3c0f7;
+  color: #ff2014;
+}
+
+.top_section {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttons {
+  margin-left: 50px;
+  display: flex;
+}
+
+.mid_section {
+  min-height: 350px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  background-color: #262626;
+}
+
+.search form {
+  background-color: #262626;
+
 }
