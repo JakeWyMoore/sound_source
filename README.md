@@ -1,12 +1,22 @@
-Start virtual environment on your computer.
+# SoundSource
 
-- Download project
-- Open ZIP file
-- Open terminal
-  - CD into project
-  - CD to manage.py level
+SoundSource is a music playing application that impliments the Spotipy API
 
-  python manage.py runserver
+## Installation & Running Application
 
-  open http://localhost:8000/
+Download SoundSource onto your computer and unzip the file
 
+Start a virtual environment and CD into project to manage.py level
+
+At manage.py level, run: 
+```
+python manage.py runserver
+```
+
+In browser, go to 
+```
+http://localhost:8000/
+```
+
+## Hire Me
+http://devjake.co/
