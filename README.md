@@ -6,7 +6,7 @@ SoundSource is a music playing application that impliments the Spotipy API
 
 Download SoundSource onto your computer and unzip the file
 
-Start a virtual environment and CD into project to manage.py level
+Start a virtual environment and ````cd```` into project to manage.py level
 
 At manage.py level, run: 
 ```
